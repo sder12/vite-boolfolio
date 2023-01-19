@@ -27,7 +27,7 @@ export default {
 
         <div class="row justify-content-center">
 
-            <ProjectCard v-for="project in projects" :key="project.id" />
+            <ProjectCard v-for="project in projects" :key="project.id" :project=project />
 
 
             <!-- Col + Card -->

@@ -1,13 +1,16 @@
 <script>
 export default {
     name: "ProjectCard",
+    props: {
+        project: Object,
+    },
 }
 </script>
 
 
 <template>
 
-    <h5>ciao</h5>
+    <h5>{{ project.title }}</h5>
     <!-- Col + Card -->
     <!-- <div class="col-11 col-md-6 col-lg-4 d-flex justify-content-center mt-3" v-for="project in projects"
         :key="project.id">
