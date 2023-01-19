@@ -1,21 +1,27 @@
 <script>
 import axios from 'axios';
+import Loading from './Loading.vue';
 import ProjectCard from './ProjectCard.vue';
 
 export default {
     name: "AppMain",
-    components: { ProjectCard },
+    components: { ProjectCard, Loading },
     data() {
         return {
             apiUrl: "http://127.0.0.1:8000/api/projects",
             codeUrl: "http://127.0.0.1:8000",
-            projects: []
+            projects: [],
+            loading: false,
         };
     },
     created() {
-        axios.get(this.apiUrl).then((resp) => this.projects = resp.data.results);
+        this.loading = true;
+        axios.get(this.apiUrl).then((resp) => {
+            this.projects = resp.data.results;
+            this.loading = false;
+        });
     },
-    components: { ProjectCard }
+    components: { ProjectCard, Loading }
 }
 
 
@@ -26,10 +32,11 @@ export default {
         <h4 class="text-center fw-bold mb-4">PROJECTS</h4>
 
         <div class="row justify-content-center">
-
-            <ProjectCard v-for="project in projects" :key="project.id" :project=project />
-
+            <Loading v-if="loading" />
+            <ProjectCard v-else v-for="project in projects" :key="project.id" :project=project />
         </div>
+
+
     </main>
 </template>
 
