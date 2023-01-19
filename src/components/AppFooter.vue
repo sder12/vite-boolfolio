@@ -5,8 +5,10 @@ export default {
 </script>
 
 <template>
-    <footer class="bg-success">
-        <h5>footer</h5>
+    <footer class="py-3 text-end">
+        <span class="fs-6 fw-ligh">
+            Made with Vue+Laravel
+        </span>
     </footer>
 </template>
 
