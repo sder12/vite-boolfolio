@@ -1,13 +1,13 @@
 <script>
 export default {
-    name: "AppMain"
+    name: "AppHeader"
 }
 </script>
 
 <template>
-    <main class="bg-primary">
-        <h2>Main</h2>
-    </main>
+    <header class="bg-warning">
+        <h2>header</h2>
+    </header>
 </template>
 
 

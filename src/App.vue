@@ -1,13 +1,27 @@
 <script>
+import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
+import AppFooter from './components/AppFooter.vue';
+
+export default {
+  components: {
+    AppHeader,
+    AppMain,
+    AppFooter
+  }
+}
 
 </script>
 
 <template>
-
   <div class="container">
-    <div class="row justify-content-center">
-      <h1 class="text-center">AppVue</h1>
-    </div>
+
+    <AppHeader />
+
+    <AppMain />
+
+    <AppFooter />
+
   </div>
 </template>
 

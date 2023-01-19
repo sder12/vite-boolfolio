@@ -1,15 +1,14 @@
 <script>
 export default {
-    name: "AppMain"
+    name: "AppFooter"
 }
 </script>
 
 <template>
-    <main class="bg-primary">
-        <h2>Main</h2>
-    </main>
+    <footer class="bg-success">
+        <h5>footer</h5>
+    </footer>
 </template>
-
 
 <style lang="scss" scoped>
 
