@@ -4,34 +4,67 @@ export default {
     props: {
         project: Object,
     },
+    data() {
+        return {
+            codeUrl: "http://127.0.0.1:8000",
+        }
+    },
+    computed: {
+        descriptionPreview() {
+            if (this.project.description && this.project.description.length > 100) {
+                return this.project.description.substr(0, 100) + ' ...';
+            }
+            return this.project.description;
+        }
+    },
 }
 </script>
 
 
 <template>
 
-    <h5>{{ project.title }}</h5>
+    <!-- <h5>{{ project.title }}</h5> -->
     <!-- Col + Card -->
-    <!-- <div class="col-11 col-md-6 col-lg-4 d-flex justify-content-center mt-3" v-for="project in projects"
-        :key="project.id">
+    <div class="col-11 col-md-6 col-lg-3 d-flex justify-content-center mt-3">
         <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+
+            <img v-if="project.cover_img" class="w-100" :src="`${codeUrl}/storage/${project.cover_img}`"
+                :alt="project.title">
+            <img v-else src="https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"
+                :alt="project.title">
+
             <div class="card-body">
                 <h5 class="card-title">{{ project.title }}</h5>
-                <p class="card-text">
-                    Description
+                <p v-show="project.description" class="card-text fw-light">
+                    {{ descriptionPreview }}
                 </p>
             </div>
+
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Technology</li>
-                <li class="list-group-item">Type</li>
+                <li class="list-group-item text-success fw-semibold">
+                    {{ project.type ? project.type.name : '---' }}
+                </li>
+                <li class="list-group-item text-info">
+                    #technology
+                </li>
             </ul>
-            <div class="card-body">
-                <a href="#" class="card-link">Show</a>
+
+            <!-- ERRORE technologies-->
+            <!-- project.technologies[].name -->
+            <!-- <ul class="text-danger">
+                <li class="list-group-item"> {{ project.technologies !== [] ? project.title : '---' }} </li>
+
+                <li v-if="project.technolgies" class="list-group-item">Technology </li>
+                <li v-else class="list-group-item"> no tech</li>
+            </ul> -->
+            <!-- / ERRORE -->
+
+            <div class="card-body text-end">
+                <a href="#" class="card-link btn btn-light">Detail</a>
             </div>
         </div>
     </div>
-    / Col + Card -->
+    <!-- / Col + Card -->
 
 </template>
 <style lang="scss" scoped>
