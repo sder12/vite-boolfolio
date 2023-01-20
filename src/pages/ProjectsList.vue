@@ -1,10 +1,10 @@
 <script>
 import axios from 'axios';
-import Loading from './Loading.vue';
-import ProjectCard from './ProjectCard.vue';
+import Loading from '../components/Loading.vue';
+import ProjectCard from '../components/ProjectCard.vue';
 
 export default {
-    name: "AppMain",
+    name: "ProjectsList",
     components: { ProjectCard, Loading },
     data() {
         return {
