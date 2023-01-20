@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: "AppAbout"
+    name: "AboutUs"
 }
 </script>
 
