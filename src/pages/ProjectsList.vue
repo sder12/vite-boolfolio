@@ -2,21 +2,21 @@
 import axios from 'axios';
 import Loading from '../components/Loading.vue';
 import ProjectCard from '../components/ProjectCard.vue';
+import { store } from '../store';
 
 export default {
     name: "ProjectsList",
     components: { ProjectCard, Loading },
     data() {
         return {
-            apiUrl: "http://127.0.0.1:8000/api/projects",
-            codeUrl: "http://127.0.0.1:8000",
+            store,
             projects: [],
             loading: false,
         };
     },
     created() {
         this.loading = true;
-        axios.get(this.apiUrl).then((resp) => {
+        axios.get(this.store.apiUrl + '/api/projects').then((resp) => {
             this.projects = resp.data.results;
             this.loading = false;
         });
