@@ -25,9 +25,10 @@ export default {
                     page: 1
                 }
             }).then((resp) => {
-                console.log(resp.data)
+                console.log(resp.data.results.data)
                 // this.projects = resp.data.results;
-                // this.loading = false;
+                this.projects = resp.data.results.data;
+                this.loading = false;
             });
         }
     }
