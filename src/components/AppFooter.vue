@@ -6,12 +6,17 @@ export default {
 
 <template>
     <footer class="py-3 text-end">
-        <span class="fs-6 fw-ligh">
+        <span>
             Made with Vue+Laravel
         </span>
     </footer>
 </template>
 
 <style lang="scss" scoped>
-
+footer span {
+    font-size: .6rem;
+    font-weight: lighter;
+    color: darkgray;
+    font-style: italic;
+}
 </style>
