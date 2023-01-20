@@ -17,11 +17,15 @@ export default {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <router-link class="nav-link" aria-current="page" :to="{ name: 'home' }">
+                                Home
+                            </router-link>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li> -->
+                        <li class="nav-item">
+                            <router-link class="nav-link" aria-current="page" :to="{ name: 'about' }">
+                                About us
+                            </router-link>
+                        </li>
                     </ul>
                     <div>
                         <a class="nav-link" href="http://127.0.0.1:8000/admin/projects">Admin</a>
