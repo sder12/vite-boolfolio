@@ -5,11 +5,9 @@ import AppFooter from './components/AppFooter.vue';
 export default {
   components: {
     AppHeader,
-    AppMain,
     AppFooter
   }
 }
-
 </script>
 
 <template>
