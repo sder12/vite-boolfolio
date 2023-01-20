@@ -15,13 +15,23 @@ export default {
         };
     },
     created() {
-        this.loading = true;
-        axios.get(this.store.apiUrl + '/api/projects').then((resp) => {
-            this.projects = resp.data.results;
-            this.loading = false;
-        });
+        this.getProjects();
     },
-    components: { ProjectCard, Loading }
+    methods: {
+        getProjects() {
+            this.loading = true;
+            axios.get(this.store.apiUrl + '/api/projects', {
+                params: {
+                    page: 1
+                }
+            }).then((resp) => {
+                console.log(resp.data)
+                // this.projects = resp.data.results;
+                // this.loading = false;
+            });
+        }
+    }
+
 }
 
 
