@@ -12,7 +12,9 @@ export default {
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand fw-bold" href="#">Boolfolio</a>
+                <router-link class="navbar-brand fw-bold" aria-current="page" :to="{ name: 'home' }">
+                    Boolfolio
+                </router-link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">

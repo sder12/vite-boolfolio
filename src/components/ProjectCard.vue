@@ -1,4 +1,5 @@
 <script>
+
 export default {
     name: "ProjectCard",
     props: {
@@ -9,6 +10,7 @@ export default {
             codeUrl: "http://127.0.0.1:8000",
         }
     },
+
     computed: {
         descriptionPreview() {
             if (this.project.description && this.project.description.length > 100) {
@@ -44,20 +46,15 @@ export default {
                 <li class="list-group-item text-success fw-semibold">
                     {{ project.type ? project.type.name : '---' }}
                 </li>
-                <li class="list-group-item text-info">
-                    #technology
+
+            </ul>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-primary">
+                    <span v-for="tech in project.technologies" :key="tech.id">
+                        #{{ tech.name }}
+                    </span>
                 </li>
             </ul>
-
-            <!-- ERRORE technologies-->
-            <!-- project.technologies[].name -->
-            <!-- <ul class="text-danger">
-                <li class="list-group-item"> {{ project.technologies !== [] ? project.title : '---' }} </li>
-
-                <li v-if="project.technolgies" class="list-group-item">Technology </li>
-                <li v-else class="list-group-item"> no tech</li>
-            </ul> -->
-            <!-- / ERRORE -->
 
             <div class="card-body text-end">
                 <a href="#" class="card-link btn btn-light">Detail</a>

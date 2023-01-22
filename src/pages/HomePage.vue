@@ -28,7 +28,9 @@ export default {
                     <router-link class="btn btn-dark me-2" :to="{ name: 'about' }">
                         about us
                     </router-link>
-                    <a class="btn btn-dark" href="">our project</a>
+                    <router-link class="btn btn-dark" :to="{ name: 'projects' }">
+                        our project
+                    </router-link>
                 </div>
 
             </div>
