@@ -5,7 +5,8 @@ export default {
     name: 'SingleProj',
     data() {
         return {
-            store
+            store,
+            project: {},
         }
     },
     created() {
@@ -16,7 +17,8 @@ export default {
             // console.log(this.$route.params.slug, this.store.apiUrl)
             axios.get(`${this.store.apiUrl}/api/projects/${this.$route.params.slug}`)
                 .then(resp => {
-                    console.log(resp.data.project)
+                    this.project = resp.data.project;
+                    console.log('project', this.project.title);
                 })
         }
     }
