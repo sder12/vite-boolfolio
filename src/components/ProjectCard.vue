@@ -57,7 +57,10 @@ export default {
             </ul>
 
             <div class="card-body text-end">
-                <a href="#" class="card-link btn btn-light">Detail</a>
+                <router-link class="card-link btn btn-light"
+                    :to="{ name: 'single-proj', params: { slug: project.slug } }">
+                    Detail
+                </router-link>
             </div>
         </div>
     </div>
