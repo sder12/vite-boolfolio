@@ -21,12 +21,17 @@ export default {
                     // true quando slug esiste false quando non c'è
                     if (resp.data.success) {
                         this.project = resp.data.project;
-                        console.log(this.project);
+                        // console.log(this.project);
                     } else {
                         //rindirizza alla pagina 404
                         this.$router.push({ name: "not-found" });
                     };
                 })
+        }
+    },
+    computed: {
+        type() {
+            return this.project.type ? this.project.type.name : '---';
         }
     }
 }
@@ -37,8 +42,7 @@ export default {
         <div class="row justify-content-center">
             <div class="col-12 text-center">
                 <h2 class="my-4">{{ project.title }}</h2>
-                <h4 class="text-success" v-if="project.type">{{ project.type.name }}</h4>
-                <h4 v-else> --- </h4>
+                <h4 class="text-success">{{ type }}</h4>
             </div>
 
             <div class="col-6 text-center" id="cover_img" v-if="project.cover_img">
