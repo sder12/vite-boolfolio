@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios';
 import { store } from '../store';
 export default {
     name: 'SingleProj',
@@ -12,7 +13,11 @@ export default {
     },
     methods: {
         getSinglePoject() {
-            console.log(this.$route.params.slug, this.store.apiUrl)
+            // console.log(this.$route.params.slug, this.store.apiUrl)
+            axios.get(`${this.store.apiUrl}/api/projects/${this.$route.params.slug}`)
+                .then(resp => {
+                    console.log(resp.data.project)
+                })
         }
     }
 }
